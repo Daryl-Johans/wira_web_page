@@ -1,0 +1,163 @@
+---
+// Download.astro — usa exclusivamente clases globales de global.css
+---
+
+<section class="wira-download" id="descarga" aria-labelledby="download-heading">
+  <div class="wira-container download-inner reveal">
+    <div class="download-copy">
+      <span class="download-eyebrow">Próximamente en Android</span>
+      <h2 id="download-heading" class="download-title">
+        Lleva Wira en tu<br /><em>dispositivo móvil</em>
+      </h2>
+      <p class="download-sub">
+        Muy pronto podrás descargar nuestra <strong>versión gratuita</strong> directamente desde la Google
+        Play Store. Administra tus ventas, controla el stock de tus productos y gestiona todas tus operaciones
+        diarias de forma rápida y sencilla desde tu smartphone o tablet.
+      </p>
+
+      <div class="download-features" role="list" aria-label="Características de la app móvil">
+        <div class="download-feat" role="listitem">
+          <span class="download-feat-icon" aria-hidden="true">⚡</span>
+          <div class="download-feat-text">
+            <strong>Ventas ultra rápidas:</strong> Interfaz ágil optimizada para pantallas táctiles.
+          </div>
+        </div>
+        <div class="download-feat" role="listitem">
+          <span class="download-feat-icon" aria-hidden="true">📈</span>
+          <div class="download-feat-text">
+            <strong>Reportes al instante:</strong> Monitorea tus ingresos diarios y métricas clave en
+            un toque.
+          </div>
+        </div>
+        <div class="download-feat" role="listitem">
+          <span class="download-feat-icon" aria-hidden="true">🔄</span>
+          <div class="download-feat-text">
+            <strong>Sincronización en la nube:</strong> Tu inventario y reportes actualizados al segundo.
+          </div>
+        </div>
+        <div class="download-feat" role="listitem">
+          <span class="download-feat-icon" aria-hidden="true">🆓</span>
+          <div class="download-feat-text">
+            <strong>Plan Gratuito:</strong> Todas las funciones esenciales sin costo mensual.
+          </div>
+        </div>
+      </div>
+
+      <div class="download-actions">
+        <!-- Badge simulado de Google Play con look oficial e interactivo -->
+        <div
+          class="play-store-badge-placeholder"
+          aria-label="Disponible pronto en Google Play Store"
+        >
+          <div class="badge-icon-google-play">
+            <svg viewBox="0 0 512 512" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M32.5 12.2c-.8.8-1.3 2.1-1.3 3.7v464.3c0 1.6.5 2.9 1.3 3.7l1.1 1.1L263.3 256v-4.6L33.6 11.1l-1.1 1.1z"
+                fill="#00b0ff"></path>
+              <path
+                d="M340.5 333.2l-77.2-77.2v-4.6l77.2-77.2 1.4.8 91.5 52.4c26.2 15 26.2 39.5 0 54.5l-91.5 52.4-1.4-.7z"
+                fill="#ffd600"></path>
+              <path
+                d="M342 332.4L263.3 253.7 32.5 484.5c8.6 9.1 22.8 10.3 38.6 1.3l270.9-153.4"
+                fill="#ff3d00"></path>
+              <path
+                d="M342 179.6L71.1 26.2c-15.8-9-30-7.8-38.6 1.3L263.3 258.3 342 179.6z"
+                fill="#4caf50"></path>
+            </svg>
+          </div>
+          <div class="badge-text-google-play">
+            <span class="badge-text-sub">DISPONIBLE PRONTO EN</span>
+            <span class="badge-text-main">Google Play</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mockup del Teléfono Android interactivo construido en CSS puro -->
+    <div class="download-visual" aria-hidden="true">
+      <div class="phone-mockup">
+        <div class="phone-speaker"></div>
+        <div class="phone-screen">
+          <div class="phone-header">
+            <span class="phone-logo">wira</span>
+            <span class="phone-status">100% Mobile</span>
+          </div>
+          <div class="phone-body">
+            <div class="phone-slider-window">
+              <div class="phone-slider-track">
+                <!-- Slide 1: Ventas -->
+                <div class="phone-slide">
+                  <span class="slide-icon">⚡</span>
+                  <span class="slide-title">Ventas Rápidas</span>
+                  <div class="slide-card sales-card">
+                    <span class="sales-desc">Nueva Venta</span>
+                    <span class="sales-val">Bs 120.00</span>
+                    <span class="sales-status">✓ Registrada</span>
+                  </div>
+                </div>
+
+                <!-- Slide 2: Mesas (Restaurante) -->
+                <div class="phone-slide">
+                  <span class="slide-icon">🍽️</span>
+                  <span class="slide-title">Control de Mesas</span>
+                  <div class="slide-card tables-grid">
+                    <div class="table-box active">M1</div>
+                    <div class="table-box active">M2</div>
+                    <div class="table-box">M3</div>
+                    <div class="table-box">M4</div>
+                  </div>
+                </div>
+
+                <!-- Slide 3: Habitaciones (Hotel) -->
+                <div class="phone-slide">
+                  <span class="slide-icon">🔑</span>
+                  <span class="slide-title">Habitaciones</span>
+                  <div class="slide-card hotel-card">
+                    <div class="room-row">
+                      <span>Hab. 104</span>
+                      <span class="badge-orange">Ocupada</span>
+                    </div>
+                    <div class="room-row">
+                      <span>Hab. 105</span>
+                      <span class="badge-green">Libre</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slide 4: Tiempos (Billar) -->
+                <div class="phone-slide">
+                  <span class="slide-icon">🎱</span>
+                  <span class="slide-title">Tiempos de Juego</span>
+                  <div class="slide-card time-card">
+                    <span class="time-label">Mesa 3 (Billar)</span>
+                    <span class="time-clock">01:24:45</span>
+                    <span class="time-status">En juego</span>
+                  </div>
+                </div>
+
+                <!-- Slide 5: Stock (Ferretería) -->
+                <div class="phone-slide">
+                  <span class="slide-icon">📦</span>
+                  <span class="slide-title">Stock y Alertas</span>
+                  <div class="slide-card stock-card">
+                    <div class="stock-item">
+                      <span>Pernos 3/8</span>
+                      <div class="progress-bar">
+                        <div class="progress-fill" style="width: 85%;"></div>
+                      </div>
+                    </div>
+                    <div class="stock-item">
+                      <span>Taladro Dewalt</span>
+                      <span class="stock-alert">¡Stock Bajo!</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="phone-home-btn"></div>
+      </div>
+    </div>
+  </div>
+</section>

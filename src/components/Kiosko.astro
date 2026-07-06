@@ -1,0 +1,727 @@
+---
+// Kiosko.astro — Componente dedicado a presentar el Kiosko de Autopedido Wira
+---
+
+<section class="wira-kiosko" id="kiosko" aria-labelledby="kiosko-heading">
+  <div class="wira-container kiosko-inner">
+    <div class="kiosko-copy reveal">
+      <span class="wira-section-badge">¡Lo Nuevo!</span>
+      <h2 id="kiosko-heading" class="wira-section-title">
+        Kiosko de<br />Autopedido Wira
+      </h2>
+      <p class="wira-section-sub">
+        Moderniza la experiencia de tus clientes con terminales interactivos de autoservicio. Una
+        pantalla táctil intuitiva y atractiva que vende por ti.
+      </p>
+
+      <div class="kiosko-features-list" role="list">
+        <div class="kiosko-feature" role="listitem">
+          <span class="k-feat-icon" aria-hidden="true">📈</span>
+          <div class="k-feat-content">
+            <h3 class="k-feat-title">Aumenta el ticket promedio</h3>
+            <p class="k-feat-desc">
+              Sugerencia inteligente de bebidas, acompañamientos y extras durante el proceso de
+              selección de productos.
+            </p>
+          </div>
+        </div>
+
+        <div class="kiosko-feature" role="listitem">
+          <span class="k-feat-icon" aria-hidden="true">⚡</span>
+          <div class="k-feat-content">
+            <h3 class="k-feat-title">Cero colas y esperas</h3>
+            <p class="k-feat-desc">
+              Permite a tus clientes ordenar de manera rápida y autónoma en horas punta, liberando
+              carga a tu personal.
+            </p>
+          </div>
+        </div>
+
+        <div class="kiosko-feature" role="listitem">
+          <span class="k-feat-icon" aria-hidden="true">🍳</span>
+          <div class="k-feat-content">
+            <h3 class="k-feat-title">Sincronización instantánea</h3>
+            <p class="k-feat-desc">
+              Los pedidos van directo a las pantallas o ticketeras de cocina y barra, registrándose
+              automáticamente en tu caja central.
+            </p>
+          </div>
+        </div>
+
+        <div class="kiosko-feature" role="listitem">
+          <span class="k-feat-icon" aria-hidden="true">🖥️</span>
+          <div class="k-feat-content">
+            <h3 class="k-feat-title">Hardware accesible y flexible</h3>
+            <p class="k-feat-desc">
+              Funciona de manera nativa en cualquier tablet comercial (Android o Windows),
+              adaptándose a pedestales, mesas o pared.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="kiosko-visual reveal">
+      <div class="kiosko-device">
+        <!-- Bezel de la tablet -->
+        <div class="kiosko-screen-bezel">
+          <div class="kiosko-camera"></div>
+          <div class="kiosko-screen">
+            <!-- Header simulado de la app de autopedido -->
+            <div class="k-screen-header">
+              <span class="k-brand">🍔 BURGER CLUB</span>
+              <span class="k-table-tag">Kiosko #1</span>
+            </div>
+
+            <!-- Contenido simulado de la app -->
+            <div class="k-screen-content">
+              <p class="k-screen-intro">Toca para agregar a tu orden:</p>
+
+              <div class="k-menu-grid">
+                <!-- Item 1 -->
+                <div
+                  class="k-menu-card"
+                  data-id="burger"
+                  data-price="45"
+                  data-name="Combo Burger Pro"
+                >
+                  <div class="k-card-emoji" aria-hidden="true">🍔</div>
+                  <div class="k-card-info">
+                    <span class="k-item-name">Combo Burger Pro</span>
+                    <span class="k-item-price">Bs 45.00</span>
+                  </div>
+                  <div class="k-qty-controls">
+                    <button class="k-qty-btn k-minus" aria-label="Restar 1">-</button>
+                    <span class="k-qty-val" id="qty-burger">0</span>
+                    <button class="k-qty-btn k-plus" aria-label="Sumar 1">+</button>
+                  </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="k-menu-card" data-id="fries" data-price="15" data-name="Papas Rústicas">
+                  <div class="k-card-emoji" aria-hidden="true">🍟</div>
+                  <div class="k-card-info">
+                    <span class="k-item-name">Papas Rústicas</span>
+                    <span class="k-item-price">Bs 15.00</span>
+                  </div>
+                  <div class="k-qty-controls">
+                    <button class="k-qty-btn k-minus" aria-label="Restar 1">-</button>
+                    <span class="k-qty-val" id="qty-fries">0</span>
+                    <button class="k-qty-btn k-plus" aria-label="Sumar 1">+</button>
+                  </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="k-menu-card" data-id="soda" data-price="10" data-name="Gaseosa Gigante">
+                  <div class="k-card-emoji" aria-hidden="true">🥤</div>
+                  <div class="k-card-info">
+                    <span class="k-item-name">Gaseosa Gigante</span>
+                    <span class="k-item-price">Bs 10.00</span>
+                  </div>
+                  <div class="k-qty-controls">
+                    <button class="k-qty-btn k-minus" aria-label="Restar 1">-</button>
+                    <span class="k-qty-val" id="qty-soda">0</span>
+                    <button class="k-qty-btn k-plus" aria-label="Sumar 1">+</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Footer y Carrito simulado -->
+              <div class="k-cart-footer">
+                <div class="k-cart-summary">
+                  <span class="k-cart-count" id="k-cart-count">Tu Pedido (0 ítems)</span>
+                  <span class="k-cart-total" id="k-cart-total">Bs 0.00</span>
+                </div>
+                <button class="k-checkout-btn" id="k-checkout-btn" disabled type="button">
+                  Confirmar Pedido
+                </button>
+              </div>
+            </div>
+
+            <!-- Pantalla de confirmación animada (oculta por defecto) -->
+            <div class="k-success-screen" id="k-success-screen" aria-hidden="true">
+              <div class="k-success-content">
+                <div class="k-success-icon">✓</div>
+                <h4 class="k-success-title">¡Pedido Enviado!</h4>
+                <p class="k-success-desc">Tu orden fue enviada directamente a la cocina.</p>
+                <p class="k-success-ticket">Ticket #<span id="k-success-ticket-id">104</span></p>
+                <button class="k-reset-btn" id="k-reset-btn" type="button">Nueva Orden</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Pedestal / Soporte físico del Kiosko -->
+        <div class="kiosko-stand-neck"></div>
+        <div class="kiosko-stand-base"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .wira-kiosko {
+    background: var(--color-bg-alt);
+    padding: 96px 0;
+    border-top: 1px solid var(--color-border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .kiosko-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    .kiosko-inner {
+      flex-direction: row;
+      gap: 64px;
+      justify-content: space-between;
+    }
+  }
+
+  .kiosko-copy {
+    flex: 1.1;
+    width: 100%;
+  }
+
+  .kiosko-features-list {
+    margin-top: 36px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  @media (min-width: 640px) {
+    .kiosko-features-list {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+  }
+
+  .kiosko-feature {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .k-feat-icon {
+    font-size: 1.8rem;
+    line-height: 1;
+    width: 48px;
+    height: 48px;
+    background: var(--color-primary-soft);
+    border: 1px solid color-mix(in srgb, var(--color-primary) 15%, transparent);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .k-feat-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .k-feat-title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 750;
+    color: var(--color-text);
+  }
+
+  .k-feat-desc {
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--color-text-muted);
+  }
+
+  /* Visual e Interactividad (Mockup del Dispositivo Kiosko) */
+  .kiosko-visual {
+    flex: 0.9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .kiosko-device {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 380px;
+    perspective: 1000px;
+  }
+
+  .kiosko-screen-bezel {
+    width: 100%;
+    aspect-ratio: 9 / 15;
+    background: #111520;
+    border: 12px solid #2d3748;
+    border-radius: var(--radius-lg);
+    box-shadow:
+      0 12px 36px rgba(0, 0, 0, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.05),
+      var(--shadow-glow);
+    padding: 8px;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .kiosko-camera {
+    width: 6px;
+    height: 6px;
+    background: #000;
+    border-radius: 50%;
+    position: absolute;
+    top: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .kiosko-screen {
+    width: 100%;
+    height: 100%;
+    background: var(--color-bg);
+    border-radius: calc(var(--radius-lg) - 10px);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+  }
+
+  /* Cabecera del Kiosko */
+  .k-screen-header {
+    background: var(--color-surface);
+    padding: 10px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .k-brand {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: var(--color-text);
+  }
+
+  .k-table-tag {
+    font-size: 0.65rem;
+    font-weight: 700;
+    background: var(--color-primary-soft);
+    color: var(--color-primary-hover);
+    padding: 2px 8px;
+    border-radius: 99px;
+  }
+
+  /* Contenido del Kiosko */
+  .k-screen-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    overflow-y: auto;
+  }
+
+  .k-screen-intro {
+    font-size: 0.72rem;
+    color: var(--color-text-muted);
+    margin: 0 0 8px 0;
+  }
+
+  .k-menu-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+  }
+
+  .k-menu-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s ease;
+  }
+
+  .k-menu-card:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .k-card-emoji {
+    font-size: 1.75rem;
+    line-height: 1;
+  }
+
+  .k-card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+  }
+
+  .k-item-name {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .k-item-price {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--color-primary-hover);
+  }
+
+  .k-qty-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 2px;
+  }
+
+  .k-qty-btn {
+    border: none;
+    background: transparent;
+    color: var(--color-text);
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+
+  .k-qty-btn:hover {
+    background: var(--color-primary-soft);
+    color: var(--color-primary-hover);
+  }
+
+  .k-qty-val {
+    font-size: 0.75rem;
+    font-weight: 700;
+    min-width: 14px;
+    text-align: center;
+  }
+
+  /* Footer del Carrito */
+  .k-cart-footer {
+    border-top: 1px solid var(--color-border);
+    padding-top: 10px;
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .k-cart-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .k-cart-count {
+    font-size: 0.65rem;
+    color: var(--color-text-muted);
+  }
+
+  .k-cart-total {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--color-text);
+  }
+
+  .k-checkout-btn {
+    width: 100%;
+    padding: 8px;
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+    border: none;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .k-checkout-btn:hover:not(:disabled) {
+    background: var(--color-primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 125, 248, 0.35);
+  }
+
+  .k-checkout-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  /* Pantalla de Confirmación de Pedido Exitoso */
+  .k-success-screen {
+    position: absolute;
+    inset: 0;
+    background: var(--color-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+  }
+
+  .k-success-screen.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .k-success-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .k-success-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--color-accent);
+    color: white;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: scaleIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .k-success-title {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--color-text);
+  }
+
+  .k-success-desc {
+    margin: 0;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    max-width: 200px;
+    line-height: 1.4;
+  }
+
+  .k-success-ticket {
+    margin: 4px 0 0 0;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--color-primary-hover);
+    background: var(--color-primary-soft);
+    padding: 3px 12px;
+    border-radius: 99px;
+  }
+
+  .k-reset-btn {
+    margin-top: 8px;
+    padding: 6px 16px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    color: var(--color-text);
+    font-size: 0.7rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .k-reset-btn:hover {
+    border-color: var(--color-text-muted);
+    background: var(--color-border);
+  }
+
+  /* Soporte y Base Físicos */
+  .kiosko-stand-neck {
+    width: 32px;
+    height: 64px;
+    background: linear-gradient(90deg, #4a5568 0%, #2d3748 50%, #1a202c 100%);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+    margin-top: -4px;
+  }
+
+  .kiosko-stand-base {
+    width: 140px;
+    height: 12px;
+    background: linear-gradient(180deg, #2d3748 0%, #1a202c 100%);
+    border-radius: 6px 6px 0 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+  }
+
+  @keyframes scaleIn {
+    from {
+      transform: scale(0.6);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes pulseCheckout {
+    0% {
+      box-shadow: 0 0 0 0 rgba(59, 125, 248, 0.4);
+    }
+    70% {
+      box-shadow: 0 0 0 8px rgba(59, 125, 248, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(59, 125, 248, 0);
+    }
+  }
+
+  .k-checkout-btn:not(:disabled) {
+    animation: pulseCheckout 2s infinite;
+  }
+</style>
+
+<script>
+  interface CartItem {
+    price: number;
+    qty: number;
+    name: string;
+  }
+
+  function setupKiosko() {
+    const cards = document.querySelectorAll('.k-menu-card');
+    const checkoutBtn = document.getElementById('k-checkout-btn') as HTMLButtonElement | null;
+    const cartCountEl = document.getElementById('k-cart-count');
+    const cartTotalEl = document.getElementById('k-cart-total');
+
+    const successScreen = document.getElementById('k-success-screen');
+    const resetBtn = document.getElementById('k-reset-btn');
+    const ticketIdEl = document.getElementById('k-success-ticket-id');
+
+    const cart: Record<string, CartItem> = {};
+
+    function updateCart() {
+      let totalQty = 0;
+      let totalCost = 0;
+
+      cards.forEach((card) => {
+        const el = card as HTMLElement;
+        const id = el.dataset.id ?? '';
+        const price = parseFloat(el.dataset.price ?? '0');
+        const name = el.dataset.name ?? '';
+        const qtyEl = el.querySelector('.k-qty-val');
+        const qty = parseInt(qtyEl?.textContent ?? '0', 10);
+
+        if (qty > 0) {
+          cart[id] = { price, qty, name };
+          totalQty += qty;
+          totalCost += qty * price;
+        } else {
+          delete cart[id];
+        }
+      });
+
+      if (cartCountEl) {
+        cartCountEl.textContent = `Tu Pedido (${totalQty} ítem${totalQty !== 1 ? 's' : ''})`;
+      }
+      if (cartTotalEl) {
+        cartTotalEl.textContent = `Bs ${totalCost.toFixed(2)}`;
+      }
+
+      if (checkoutBtn) {
+        checkoutBtn.disabled = totalQty === 0;
+      }
+    }
+
+    cards.forEach((card) => {
+      const el = card as HTMLElement;
+      const minusBtn = el.querySelector('.k-minus');
+      const plusBtn = el.querySelector('.k-plus');
+      const qtyEl = el.querySelector('.k-qty-val');
+
+      if (plusBtn && qtyEl) {
+        plusBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          let qty = parseInt(qtyEl.textContent ?? '0', 10);
+          qty++;
+          qtyEl.textContent = String(qty);
+          updateCart();
+        });
+      }
+
+      if (minusBtn && qtyEl) {
+        minusBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          let qty = parseInt(qtyEl.textContent ?? '0', 10);
+          if (qty > 0) {
+            qty--;
+            qtyEl.textContent = String(qty);
+            updateCart();
+          }
+        });
+      }
+    });
+
+    if (checkoutBtn && successScreen) {
+      checkoutBtn.addEventListener('click', () => {
+        const ticketNum = Math.floor(Math.random() * 151) + 100;
+        if (ticketIdEl) {
+          ticketIdEl.textContent = String(ticketNum);
+        }
+        successScreen.classList.add('active');
+        successScreen.setAttribute('aria-hidden', 'false');
+      });
+    }
+
+    if (resetBtn && successScreen) {
+      resetBtn.addEventListener('click', () => {
+        successScreen.classList.remove('active');
+        successScreen.setAttribute('aria-hidden', 'true');
+
+        cards.forEach((card) => {
+          const qtyEl = card.querySelector('.k-qty-val');
+          if (qtyEl) {
+            qtyEl.textContent = '0';
+          }
+        });
+        updateCart();
+      });
+    }
+  }
+
+  // Setup on load
+  setupKiosko();
+
+  // Setup on page swap (for Astro view transitions if applicable)
+  document.addEventListener('astro:page-load', setupKiosko);
+</script>

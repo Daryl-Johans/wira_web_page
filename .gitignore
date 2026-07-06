@@ -1,0 +1,48 @@
+# build output
+dist/
+.astro/
+
+# dependencias
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# entorno
+.env
+.env.production
+.env.local
+
+# editor
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# sistema
+.DS_Store
+Thumbs.db
+
+# memoria del arnes (se regeneran)
+memory.tmp.json
+
+# recursos de diseño y temporales pesados
+logos wira/
+temp_logos/
+*.zip
+
+# herramientas y logs del agente de IA (desarrollo)
+.agents/
+AGENTS.md
+CLAUDE.md
+HARNESS.md
+implementation_plan.md
+task.md
+verify_harness.ps1
+repl_loop.mjs
+
+# archivos temporales o páginas de prueba
+logo-wira-final.svg
+src/pages/test-logos.astro

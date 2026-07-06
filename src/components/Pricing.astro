@@ -1,0 +1,376 @@
+---
+// Pricing.astro — usa exclusivamente clases globales de global.css
+---
+
+<section class="wira-pricing" id="planes" aria-labelledby="pricing-title">
+  <div class="wira-container">
+    <div class="pricing-header reveal">
+      <span class="wira-section-badge wira-section-badge-green">Precios</span>
+      <h2 id="pricing-title" class="wira-section-title">Planes a tu medida</h2>
+      <p class="wira-section-sub">
+        Sin contratos. Apps instalables para Windows y Android (con web para ciertas cosas). Cancela
+        cuando quieras.
+      </p>
+      <div class="billing-tabs" role="group" aria-label="Frecuencia de pago">
+        <button
+          class="billing-tab billing-tab-active"
+          type="button"
+          id="tab-mensual"
+          aria-pressed="true">Mensual</button
+        >
+        <button class="billing-tab" type="button" id="tab-anual" aria-pressed="false"
+          >Anual <span class="billing-save">−20%</span></button
+        >
+      </div>
+    </div>
+
+    <div class="plans-row">
+      <!-- Básico -->
+      <div class="plan-card reveal" id="plan-basico">
+        <div class="plan-head">
+          <h3 class="plan-name plan-name-blue">Básico</h3>
+          <div class="plan-price-row">
+            <span class="plan-price" data-monthly="Bs 124" data-annual="Bs 1.240">Bs 124</span>
+            <span class="plan-period" data-monthly="/mes" data-annual="/año">/mes</span>
+          </div>
+          <p class="plan-price-equiv" aria-live="polite"></p>
+          <span class="plan-annual-badge" aria-hidden="true">🎁 2 meses gratis</span>
+        </div>
+        <ul class="plan-features" aria-label="Beneficios plan Básico">
+          <li class="plan-feature">
+            <svg class="check-svg check-blue" viewBox="0 0 20 20" fill="currentColor"
+              ><path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path></svg
+            >1 Sucursal
+          </li>
+          <li class="plan-feature">
+            <svg class="check-svg check-blue" viewBox="0 0 20 20" fill="currentColor"
+              ><path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path></svg
+            >1 Usuario
+          </li>
+          <li class="plan-feature">
+            <svg class="check-svg check-blue" viewBox="0 0 20 20" fill="currentColor"
+              ><path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path></svg
+            >Ventas en tiempo real
+          </li>
+          <li class="plan-feature">
+            <svg class="check-svg check-blue" viewBox="0 0 20 20" fill="currentColor"
+              ><path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path></svg
+            >Soporte por WhatsApp
+          </li>
+        </ul>
+        <a class="plan-cta plan-cta-blue" href="#contacto" id="cta-plan-basico"
+          >Elegir Plan Básico</a
+        >
+      </div>
+
+      <!-- Estándar Popular -->
+      <div
+        class="plan-card plan-card-featured reveal"
+        style="transition-delay: 120ms"
+        id="plan-estandar"
+      >
+        <div class="plan-popular-badge">Popular</div>
+        <div class="plan-head">
+          <h3 class="plan-name plan-name-orange">Estándar</h3>
+          <div class="plan-price-row">
+            <span class="plan-price" data-monthly="Bs 249" data-annual="Bs 2.490">Bs 249</span>
+            <span class="plan-period" data-monthly="/mes" data-annual="/año">/mes</span>
+          </div>
+          <p class="plan-price-equiv" aria-live="polite"></p>
+          <span class="plan-annual-badge" aria-hidden="true">🎁 2 meses gratis</span>
+        </div>
+        <ul class="plan-features" aria-label="Beneficios plan Estándar">
+          <li class="plan-feature">
+            <svg class="check-svg check-orange" viewBox="0 0 20 20" fill="currentColor"
+              ><path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path></svg
+            >1 Sucursal
+          </li>
+          <li class="plan-feature">
+            <svg class="check-svg check-orange" viewBox="0 0 20 20" fill="currentColor"
+              ><path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path></svg
+            >2 Usuarios
+          </li>
+          <li class="plan-feature">
+            <svg class="check-svg check-orange" viewBox="0 0 20 20" fill="currentColor"
+              ><path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path></svg
+            >Ventas en tiempo real
+          </li>
+          <li class="plan-feature">
+            <svg class="check-svg check-orange" viewBox="0 0 20 20" fill="currentColor"
+              ><path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path></svg
+            >Gestión de inventario
+          </li>
+          <li class="plan-feature">
+            <svg class="check-svg check-orange" viewBox="0 0 20 20" fill="currentColor"
+              ><path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path></svg
+            >Mesas / Habitaciones / Áreas
+          </li>
+          <li class="plan-feature">
+            <svg class="check-svg check-orange" viewBox="0 0 20 20" fill="currentColor"
+              ><path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path></svg
+            >Pantalla de pedidos / comandas
+          </li>
+          <li class="plan-feature">
+            <svg class="check-svg check-orange" viewBox="0 0 20 20" fill="currentColor"
+              ><path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path></svg
+            >App para personal de atención
+          </li>
+          <li class="plan-feature">
+            <svg class="check-svg check-orange" viewBox="0 0 20 20" fill="currentColor"
+              ><path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path></svg
+            >Integración para facturación
+          </li>
+          <li class="plan-feature">
+            <svg class="check-svg check-orange" viewBox="0 0 20 20" fill="currentColor"
+              ><path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path></svg
+            >Soporte prioritario
+          </li>
+        </ul>
+        <a class="plan-cta plan-cta-orange" href="#contacto" id="cta-plan-estandar"
+          >Elegir Plan Estándar</a
+        >
+      </div>
+
+      <!-- Profesional -->
+      <div class="plan-card reveal" style="transition-delay: 240ms" id="plan-profesional">
+        <div class="plan-head">
+          <h3 class="plan-name plan-name-purple">Profesional</h3>
+          <div class="plan-price-row">
+            <span class="plan-price" data-monthly="Bs 499" data-annual="Bs 4.990">Bs 499</span>
+            <span class="plan-period" data-monthly="/mes" data-annual="/año">/mes</span>
+          </div>
+          <p class="plan-price-equiv" aria-live="polite"></p>
+          <span class="plan-annual-badge" aria-hidden="true">🎁 2 meses gratis</span>
+        </div>
+        <ul class="plan-features" aria-label="Beneficios plan Profesional">
+          <li class="plan-feature">
+            <svg class="check-svg check-purple" viewBox="0 0 20 20" fill="currentColor"
+              ><path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path></svg
+            >3 Sucursales
+          </li>
+          <li class="plan-feature">
+            <svg class="check-svg check-purple" viewBox="0 0 20 20" fill="currentColor"
+              ><path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path></svg
+            >10 Usuarios
+          </li>
+          <li class="plan-feature">
+            <svg class="check-svg check-purple" viewBox="0 0 20 20" fill="currentColor"
+              ><path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path></svg
+            >Ventas en tiempo real
+          </li>
+          <li class="plan-feature">
+            <svg class="check-svg check-purple" viewBox="0 0 20 20" fill="currentColor"
+              ><path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path></svg
+            >Gestión de inventario
+          </li>
+          <li class="plan-feature">
+            <svg class="check-svg check-purple" viewBox="0 0 20 20" fill="currentColor"
+              ><path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path></svg
+            >Mesas / Habitaciones / Áreas
+          </li>
+          <li class="plan-feature">
+            <svg class="check-svg check-purple" viewBox="0 0 20 20" fill="currentColor"
+              ><path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path></svg
+            >Pantalla de pedidos / comandas
+          </li>
+          <li class="plan-feature">
+            <svg class="check-svg check-purple" viewBox="0 0 20 20" fill="currentColor"
+              ><path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path></svg
+            >App para personal de atención
+          </li>
+          <li class="plan-feature">
+            <svg class="check-svg check-purple" viewBox="0 0 20 20" fill="currentColor"
+              ><path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path></svg
+            >Fidelización de clientes
+          </li>
+          <li class="plan-feature">
+            <svg class="check-svg check-purple" viewBox="0 0 20 20" fill="currentColor"
+              ><path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path></svg
+            >Integración para facturación
+          </li>
+          <li class="plan-feature">
+            <svg class="check-svg check-purple" viewBox="0 0 20 20" fill="currentColor"
+              ><path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path></svg
+            >Soporte prioritario
+          </li>
+        </ul>
+        <a class="plan-cta plan-cta-purple" href="#contacto" id="cta-plan-profesional"
+          >Elegir Plan Profesional</a
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .plan-price,
+  .plan-period {
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
+  }
+  .plan-price.is-switching,
+  .plan-period.is-switching {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  /* Subtexto de equivalencia mensual */
+  .plan-price-equiv {
+    font-size: 0.78rem;
+    color: var(--color-text-muted, #888);
+    margin: 0.15rem 0 0;
+    min-height: 1.2em;
+    transition: opacity 0.2s ease;
+  }
+  .plan-price-equiv:empty {
+    display: none;
+  }
+
+  /* Badge "2 meses gratis" */
+  .plan-annual-badge {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.3rem 0.9rem;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 999px;
+    letter-spacing: 0.02em;
+    opacity: 0;
+    transform: scale(0.85);
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease;
+    pointer-events: none;
+  }
+  .plan-annual-badge.is-visible {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+  }
+</style>
+
+<script>
+  const tabMensual = document.getElementById('tab-mensual') as HTMLButtonElement | null;
+  const tabAnual = document.getElementById('tab-anual') as HTMLButtonElement | null;
+
+  const prices = document.querySelectorAll<HTMLElement>('.plan-price[data-monthly]');
+  const periods = document.querySelectorAll<HTMLElement>('.plan-period[data-monthly]');
+  const equivEls = document.querySelectorAll<HTMLElement>('.plan-price-equiv');
+  const badges = document.querySelectorAll<HTMLElement>('.plan-annual-badge');
+
+  // Equivalentes mensuales reales (precio anual / 12)
+  const monthlyEquiv = ['Bs 103,33', 'Bs 207,50', 'Bs 415,83'];
+
+  function switchPrices(mode: 'monthly' | 'annual') {
+    const isAnnual = mode === 'annual';
+
+    // Efecto de salida en precio y período
+    prices.forEach((el) => el.classList.add('is-switching'));
+    periods.forEach((el) => el.classList.add('is-switching'));
+
+    setTimeout(() => {
+      // Actualizar precios
+      prices.forEach((el) => {
+        el.textContent = isAnnual ? (el.dataset.annual ?? '') : (el.dataset.monthly ?? '');
+        el.classList.remove('is-switching');
+      });
+
+      // Actualizar período (/mes o /año)
+      periods.forEach((el) => {
+        el.textContent = isAnnual ? (el.dataset.annual ?? '/año') : (el.dataset.monthly ?? '/mes');
+        el.classList.remove('is-switching');
+      });
+
+      // Mostrar u ocultar subtexto de equivalencia
+      equivEls.forEach((el, i) => {
+        el.textContent = isAnnual ? `Equivale a ~ ${monthlyEquiv[i]} / mes` : '';
+      });
+
+      // Mostrar u ocultar badge "2 meses gratis"
+      badges.forEach((el) => {
+        el.classList.toggle('is-visible', isAnnual);
+      });
+    }, 200);
+
+    // Actualizar estado de tabs
+    tabMensual?.classList.toggle('billing-tab-active', !isAnnual);
+    tabAnual?.classList.toggle('billing-tab-active', isAnnual);
+    tabMensual?.setAttribute('aria-pressed', String(!isAnnual));
+    tabAnual?.setAttribute('aria-pressed', String(isAnnual));
+  }
+
+  tabMensual?.addEventListener('click', () => switchPrices('monthly'));
+  tabAnual?.addEventListener('click', () => switchPrices('annual'));
+</script>

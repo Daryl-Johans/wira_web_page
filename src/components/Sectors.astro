@@ -1,0 +1,339 @@
+---
+// Sectors.astro — usa exclusivamente clases globales de global.css y estilos scoped
+const sectors = [
+  {
+    emoji: '🍽️',
+    badge: 'Gastronomía',
+    title: 'Restaurantes',
+    desc: 'Un ecosistema completo sin papeles. Conecta en tiempo real la toma de pedidos, cocina, salón y administración sin demoras ni errores.',
+    features: [
+      'App POS de caja para toma rápida de pedidos',
+      'Pantalla de cliente para verificar cobros y artículos',
+      'App de pantalla de cocina y barra (comunicación instantánea)',
+      'App de mesero para atención en mesa y panel multi-sucursal',
+    ],
+    accentColor: 'var(--color-primary)',
+  },
+  {
+    emoji: '🏨',
+    badge: 'Hospedaje',
+    title: 'Hoteles, Moteles y Hostales',
+    desc: 'Control total de habitaciones y cabañas en tiempo real. Dile adiós a los papelitos y dale la bienvenida al orden con control exacto de tiempos y limpieza.',
+    features: [
+      'Monitoreo gráfico de habitaciones en tiempo real',
+      'Control exacto de tiempos de estadía y tarifas',
+      'Auditoría y estados de limpieza en pantalla',
+      'Cargos automáticos del restaurante al cuarto',
+    ],
+    accentColor: 'var(--color-orange)',
+  },
+  {
+    emoji: '🎱',
+    badge: 'Entretenimiento',
+    title: 'Billares y Centros de Ocio',
+    desc: 'Evita la pérdida de ingresos por errores al sumar consumos y tiempos de juego. Con Wira controlas ambos en el mismo sistema: todo se añade automáticamente a la mesa para cobrar sin fallas ni olvidos.',
+    features: [
+      'Control de tiempo y consumo unificado',
+      'Cómputo automático a la mesa sin errores',
+      'Tarifas por hora o fracción personalizables',
+      'Punto de venta para snacks, bebidas y fichas',
+    ],
+    accentColor: 'var(--color-purple)',
+  },
+  {
+    emoji: '⚙️',
+    badge: 'Ferretería & Retail',
+    title: 'Ferreterías y Comercios',
+    desc: 'Gestiona catálogos con miles de artículos y despacha ventas de forma ágil sin demoras.',
+    features: [
+      'Búsqueda ultrarrápida por código de barras',
+      'Alertas automáticas de stock mínimo',
+      'Control de múltiples precios y cajas',
+      'Registro de compras y proveedores',
+    ],
+    accentColor: 'var(--color-accent-green)',
+  },
+];
+---
+
+<section class="wira-sectors" id="sectores" aria-labelledby="sectors-title">
+  <div class="wira-container">
+    <div class="sectors-header reveal">
+      <span class="wira-section-badge">Nuestras Soluciones</span>
+      <h2 id="sectors-title" class="wira-section-title">Hecho a la medida de tu sector</h2>
+      <p class="wira-section-sub">
+        No importa cuál sea tu negocio, Wira Systems cuenta con herramientas especializadas para
+        optimizar tu día a día.
+      </p>
+    </div>
+
+    <div class="sectors-grid" role="list">
+      {
+        sectors.map((s, i) => (
+          <div
+            class="sector-card reveal"
+            style={`transition-delay: ${i * 100}ms; --sector-accent: ${s.accentColor};`}
+            role="listitem"
+          >
+            <div class="sector-card-glow" />
+
+            <div class="sector-badge-wrap">
+              <span class="sector-badge">{s.badge}</span>
+            </div>
+
+            <div class="sector-icon-wrapper" aria-hidden="true">
+              <span class="sector-emoji">{s.emoji}</span>
+            </div>
+
+            <h3 class="sector-title">{s.title}</h3>
+            <p class="sector-desc">{s.desc}</p>
+
+            <ul class="sector-features">
+              {s.features.map((f) => (
+                <li>
+                  <svg
+                    class="sector-check"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  <span>{f}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .wira-sectors {
+    padding: 96px 0;
+    background: var(--color-bg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Gradiente de fondo decorativo para la sección */
+  .wira-sectors::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(59, 125, 248, 0.03) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .sectors-header {
+    text-align: center;
+    margin-bottom: 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .sectors-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    position: relative;
+    z-index: 2;
+  }
+
+  @media (min-width: 640px) {
+    .sectors-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .sectors-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+  }
+
+  .sector-card {
+    background: linear-gradient(135deg, var(--color-surface) 0%, rgba(20, 29, 53, 0.7) 100%);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 36px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    overflow: hidden;
+    transition:
+      transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .sector-card-glow {
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: var(--sector-accent);
+    filter: blur(50px);
+    opacity: 0.05;
+    transition:
+      opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .sector-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--sector-accent);
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.3),
+      0 0 20px color-mix(in srgb, var(--sector-accent) 15%, transparent);
+  }
+
+  .sector-card:hover .sector-card-glow {
+    opacity: 0.22;
+    transform: scale(1.4);
+  }
+
+  .sector-badge-wrap {
+    display: flex;
+    position: relative;
+    z-index: 2;
+  }
+
+  .sector-badge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--sector-accent) 30%, transparent);
+    color: var(--sector-accent);
+    background: color-mix(in srgb, var(--sector-accent) 10%, transparent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    transition: all 0.3s ease;
+  }
+
+  .sector-card:hover .sector-badge {
+    background: var(--sector-accent);
+    color: #ffffff;
+    border-color: var(--sector-accent);
+    box-shadow: 0 0 10px color-mix(in srgb, var(--sector-accent) 30%, transparent);
+  }
+
+  .sector-icon-wrapper {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: color-mix(in srgb, var(--sector-accent) 8%, transparent);
+    border: 1px solid color-mix(in srgb, var(--sector-accent) 15%, transparent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    transition:
+      transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+      border-color 0.4s ease,
+      background-color 0.4s ease;
+  }
+
+  .sector-emoji {
+    font-size: 2.25rem;
+    line-height: 1;
+    display: block;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .sector-card:hover .sector-icon-wrapper {
+    transform: scale(1.08);
+    border-color: color-mix(in srgb, var(--sector-accent) 40%, transparent);
+    background: color-mix(in srgb, var(--sector-accent) 16%, transparent);
+  }
+
+  .sector-card:hover .sector-emoji {
+    transform: scale(1.15) rotate(6deg) translateY(-2px);
+  }
+
+  .sector-title {
+    margin: 4px 0 0 0;
+    font-size: 1.35rem;
+    font-weight: 850;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+    position: relative;
+    z-index: 2;
+  }
+
+  .sector-desc {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    position: relative;
+    z-index: 2;
+    flex-grow: 1;
+  }
+
+  .sector-features {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
+    padding-top: 20px;
+    position: relative;
+    z-index: 2;
+    transition: border-color 0.4s ease;
+  }
+
+  .sector-card:hover .sector-features {
+    border-top-color: color-mix(in srgb, var(--sector-accent) 25%, transparent);
+  }
+
+  .sector-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    transition: color 0.3s ease;
+  }
+
+  .sector-card:hover .sector-features li {
+    color: var(--color-text);
+  }
+
+  .sector-check {
+    width: 16px;
+    height: 16px;
+    color: var(--sector-accent);
+    flex-shrink: 0;
+    margin-top: 2px;
+    transition: transform 0.3s ease;
+  }
+
+  .sector-card:hover .sector-check {
+    transform: scale(1.15);
+  }
+</style>

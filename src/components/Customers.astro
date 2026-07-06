@@ -1,0 +1,314 @@
+---
+// Customers.astro — Seccion de negocios que ya trabajan con Wira Systems
+const clientsFeatured = [
+  {
+    name: 'El Poblau',
+    type: 'Gastronomia',
+    icon: '🍖',
+    tag: 'Destacado',
+    glowColor: 'var(--color-primary)',
+  },
+  {
+    name: 'El Kollau',
+    type: 'Gastronomia',
+    icon: '🥘',
+    tag: 'Destacado',
+    glowColor: 'var(--color-orange)',
+  },
+];
+
+const clientsStandard = [
+  { name: 'Pollos El Cantor', icon: '🍗' },
+  { name: 'Buteco Pica-Pau', icon: '🍻' },
+  { name: 'Motel Chocolate', icon: '🏨' },
+  { name: 'Chikis Pollos', icon: '🍗' },
+  { name: 'Residencial IGM', icon: '🏨' },
+  { name: 'Rest. Cabaña Don "Chocoriro"', icon: '🏡' },
+  { name: 'Arabica Porongo', icon: '☕' },
+  { name: 'Mister Pollo', icon: '🍗' },
+  { name: 'Milanesas Ñakurutu', icon: '🍽️' },
+  { name: 'Pollos & Pato al Horno Jardin de Donald', icon: '🦆' },
+  { name: 'Pollos a la Canasta M & R', icon: '🧺' },
+  { name: 'Pizzas Don Marco', icon: '🍕' },
+  { name: 'Ovoprot', icon: '🥚' },
+  { name: 'Coca Machucada La Kollita', icon: '🍃' },
+  { name: 'Solo Carnes Santa Cruz', icon: '🥩' },
+  { name: 'Billar Homer', icon: '🎱' },
+  { name: 'La Parrilla de Wilson', icon: '🔥' },
+];
+---
+
+<section class="wira-customers" id="clientes" aria-labelledby="customers-title">
+  <div class="wira-container">
+    <div class="customers-header reveal">
+      <span class="wira-section-badge">Ya confían en nosotros</span>
+      <h2 id="customers-title" class="wira-section-title">Negocios que crecen con Wira</h2>
+      <p class="wira-section-sub">
+        Desde restaurantes y billares hasta hoteles y distribuidoras — Wira Systems es la
+        herramienta elegida por negocios que quieren vender más y cobrar mejor.
+      </p>
+    </div>
+
+    <!-- Clientes Destacados -->
+    <div class="customers-featured" role="list" aria-label="Clientes destacados">
+      {
+        clientsFeatured.map((c, i) => (
+          <div
+            class="client-featured reveal"
+            style={`transition-delay: ${i * 150}ms; --c-glow: ${c.glowColor};`}
+            role="listitem"
+          >
+            <div class="cf-glow" />
+            <div class="cf-badge">{c.tag}</div>
+            <div class="cf-icon" aria-hidden="true">
+              {c.icon}
+            </div>
+            <div class="cf-info">
+              <h3 class="cf-name">{c.name}</h3>
+              <p class="cf-type">{c.type}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Grilla de clientes estándar -->
+    <div class="customers-grid" role="list" aria-label="Más negocios que usan Wira">
+      {
+        clientsStandard.map((c, i) => (
+          <div
+            class="client-card reveal"
+            style={`transition-delay: ${(i % 4) * 60}ms;`}
+            role="listitem"
+          >
+            <span class="cc-icon" aria-hidden="true">
+              {c.icon}
+            </span>
+            <p class="cc-name">{c.name}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .wira-customers {
+    padding: 96px 0;
+    background: var(--color-bg-alt);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .wira-customers::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(59, 125, 248, 0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .customers-header {
+    text-align: center;
+    margin-bottom: 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* --- TARJETAS DESTACADAS --- */
+  .customers-featured {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    max-width: 720px;
+    margin: 0 auto 40px auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  @media (min-width: 600px) {
+    .customers-featured {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .client-featured {
+    background: linear-gradient(135deg, var(--color-surface) 0%, rgba(20, 29, 53, 0.8) 100%);
+    border: 1.5px solid color-mix(in srgb, var(--c-glow) 35%, transparent);
+    border-radius: var(--radius-lg);
+    padding: 32px 24px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition:
+      transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 0.4s ease,
+      box-shadow 0.4s ease;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  }
+
+  .cf-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    background: var(--c-glow);
+    filter: blur(70px);
+    opacity: 0.07;
+    transition:
+      opacity 0.4s ease,
+      transform 0.4s ease;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .cf-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    font-size: 0.62rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--c-glow) 14%, transparent);
+    color: var(--c-glow);
+    border: 1px solid color-mix(in srgb, var(--c-glow) 28%, transparent);
+    z-index: 2;
+  }
+
+  .cf-icon {
+    font-size: 2.25rem;
+    width: 64px;
+    height: 64px;
+    background: color-mix(in srgb, var(--c-glow) 8%, transparent);
+    border: 1px solid color-mix(in srgb, var(--c-glow) 18%, transparent);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .cf-info {
+    position: relative;
+    z-index: 2;
+    min-width: 0;
+  }
+
+  .cf-name {
+    margin: 0;
+    font-size: 1.35rem;
+    font-weight: 850;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+  }
+
+  .cf-type {
+    margin: 4px 0 0 0;
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+  }
+
+  .client-featured:hover {
+    transform: translateY(-6px) scale(1.01);
+    border-color: var(--c-glow);
+    box-shadow:
+      0 20px 45px -15px rgba(0, 0, 0, 0.6),
+      0 0 30px color-mix(in srgb, var(--c-glow) 18%, transparent);
+  }
+
+  .client-featured:hover .cf-glow {
+    opacity: 0.22;
+    transform: translate(-50%, -50%) scale(1.6);
+  }
+
+  .client-featured:hover .cf-icon {
+    transform: scale(1.08) rotate(5deg);
+  }
+
+  /* --- GRILLA ESTANDAR --- */
+  .customers-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    position: relative;
+    z-index: 2;
+  }
+
+  @media (min-width: 640px) {
+    .customers-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .customers-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+  }
+
+  .client-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 16px 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition:
+      transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 0.35s ease,
+      box-shadow 0.35s ease;
+  }
+
+  .client-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.16);
+    box-shadow: 0 10px 25px -10px rgba(0, 0, 0, 0.5);
+  }
+
+  .cc-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-sm);
+    transition: transform 0.3s ease;
+  }
+
+  .client-card:hover .cc-icon {
+    transform: scale(1.12);
+  }
+
+  .cc-name {
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-text);
+    line-height: 1.35;
+    word-break: break-word;
+  }
+</style>

@@ -1,0 +1,87 @@
+---
+// FAQ.astro — usa exclusivamente clases globales de global.css
+---
+
+<section class="wira-faq" id="faq" aria-labelledby="faq-heading">
+  <div class="wira-container">
+    <div class="faq-header reveal">
+      <span class="wira-section-badge">FAQ</span>
+      <h2 id="faq-heading" class="wira-section-title">Preguntas frecuentes</h2>
+      <p class="wira-section-sub">¿Tienes dudas? Aquí respondemos las más comunes.</p>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq-item reveal" id="faq-1">
+        <summary class="faq-question"
+          >¿Dónde funciona Wira y qué necesito instalar?<span class="faq-chevron" aria-hidden="true"
+          ></span></summary
+        >
+        <div class="faq-answer">
+          Como usamos <strong>Flutter</strong> para el desarrollo de Wira, compilamos el sistema directamente
+          como aplicaciones instalables (<strong>.exe</strong> para Windows y <strong>.apk</strong> para
+          Android). Esta es nuestra prioridad y donde todo funciona al 100% de velocidad con tus periféricos
+          e impresoras térmicas.
+          <br /><br />
+          La versión de <strong>Navegador Web</strong> la dejamos solo para ciertas cosas específicas.
+          Además, si algún cliente en específico necesita un formato o versión especial, la preparamos
+          de forma personalizada.
+        </div>
+      </details>
+      <details class="faq-item reveal" style="transition-delay: 60ms" id="faq-3">
+        <summary class="faq-question"
+          >¿Cuántos dispositivos puedo conectar al mismo tiempo?<span
+            class="faq-chevron"
+            aria-hidden="true"></span></summary
+        >
+        <div class="faq-answer">
+          Depende de tu plan. El plan Básico incluye 1 usuario, el Estándar 2 usuarios y el
+          Profesional hasta 10 usuarios simultáneos en múltiples dispositivos.
+        </div>
+      </details>
+      <details class="faq-item reveal" style="transition-delay: 120ms" id="faq-4">
+        <summary class="faq-question"
+          >¿Funciona con impresoras de comandas?<span class="faq-chevron" aria-hidden="true"
+          ></span></summary
+        >
+        <div class="faq-answer">
+          Sí. Wira es compatible con impresoras térmicas ESC/POS por Bluetooth o Wi-Fi. Puedes
+          configurar destinos distintos para cocina, barra y caja.
+        </div>
+      </details>
+      <details class="faq-item reveal" style="transition-delay: 180ms" id="faq-6">
+        <summary class="faq-question"
+          >¿Tienen soporte técnico en español?<span class="faq-chevron" aria-hidden="true"
+          ></span></summary
+        >
+        <div class="faq-answer">
+          Sí, 100% en español. Los planes Estándar y Profesional incluyen soporte prioritario por
+          WhatsApp. El plan Básico tiene soporte por comunidad y documentación.
+        </div>
+      </details>
+      <details class="faq-item reveal" style="transition-delay: 300ms" id="faq-7">
+        <summary class="faq-question"
+          >¿Puedo manejar varias sucursales desde una sola cuenta?<span
+            class="faq-chevron"
+            aria-hidden="true"></span></summary
+        >
+        <div class="faq-answer">
+          Sí. Con el plan Profesional puedes gestionar hasta 3 sucursales desde un mismo panel de
+          control, con reportes consolidados y usuarios independientes por local.
+        </div>
+      </details>
+      <details class="faq-item reveal" style="transition-delay: 360ms" id="faq-8">
+        <summary class="faq-question"
+          >¿Cómo funciona el Kiosko de Autopedido de Wira?<span
+            class="faq-chevron"
+            aria-hidden="true"></span></summary
+        >
+        <div class="faq-answer">
+          El Kiosko de Autopedido de Wira convierte cualquier tablet (Android o Windows) en una
+          pantalla de autoservicio para el cliente. Los comensales eligen y personalizan sus
+          productos directamente, y el pedido se envía automáticamente a la cocina y a tu caja
+          central, agilizando el servicio y aumentando la venta promedio.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>

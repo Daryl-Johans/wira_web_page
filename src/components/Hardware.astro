@@ -1,0 +1,770 @@
+---
+// Hardware.astro — Apartado visual del catálogo de equipos de Wira Systems
+---
+
+<section class="wira-hardware" id="hardware" aria-labelledby="hardware-heading">
+  <div class="wira-container">
+    <div class="hardware-header reveal">
+      <span class="wira-section-badge">Hardware Wira</span>
+      <h2 id="hardware-heading" class="wira-section-title">
+        Equipos que potencian<br />tu operación
+      </h2>
+      <p class="wira-section-sub">
+        Hardware robusto y gratuito en todos nuestros planes. Kioscos de autoservicio, pantallas
+        modulares, impresoras térmicas y puntos de venta listos para vender.
+      </p>
+    </div>
+
+    <ul class="hardware-grid" role="list">
+      <!-- 1. Kiosco de Autoservicio -->
+      <li class="hardware-card reveal" style="transition-delay: 0ms">
+        <div class="hardware-photo hardware-photo--kiosko" aria-hidden="true">
+          <div class="hw-floor"></div>
+          <div class="hw-kiosk">
+            <div class="hw-kiosk-screen">
+              <div class="hw-kiosk-topbar">
+                <span class="hw-dot hw-dot--red"></span>
+                <span class="hw-dot hw-dot--yellow"></span>
+                <span class="hw-dot hw-dot--green"></span>
+              </div>
+              <div class="hw-kiosk-body">
+                <div class="hw-kiosk-row">
+                  <span class="hw-emoji">🍔</span>
+                  <span class="hw-kiosk-label">Combo Burger</span>
+                  <span class="hw-kiosk-price">Bs 45</span>
+                </div>
+                <div class="hw-kiosk-row hw-kiosk-row--accent">
+                  <span class="hw-emoji">🥤</span>
+                  <span class="hw-kiosk-label">Gaseosa</span>
+                  <span class="hw-kiosk-price">Bs 10</span>
+                </div>
+                <div class="hw-kiosk-row">
+                  <span class="hw-emoji">🍟</span>
+                  <span class="hw-kiosk-label">Papas</span>
+                  <span class="hw-kiosk-price">Bs 15</span>
+                </div>
+                <div class="hw-kiosk-cta">Confirmar Pedido</div>
+              </div>
+            </div>
+            <div class="hw-kiosk-neck"></div>
+            <div class="hw-kiosk-base"></div>
+          </div>
+        </div>
+        <div class="hardware-meta">
+          <span class="hardware-tag">Autoservicio</span>
+          <h3 class="hardware-name">Kiosco de Autoservicio</h3>
+          <p class="hardware-desc">
+            Terminales interactivos para que tus clientes ordenen sin filas. Aumentan el ticket
+            promedio con sugerencias inteligentes.
+          </p>
+        </div>
+      </li>
+
+      <!-- 2. Pantallas Secundarias Modulares -->
+      <li class="hardware-card reveal" style="transition-delay: 90ms">
+        <div class="hardware-photo hardware-photo--screens" aria-hidden="true">
+          <div class="hw-floor"></div>
+          <div class="hw-screens-stack">
+            <div class="hw-screen-modular hw-screen-modular--1">
+              <div class="hw-screen-bar">
+                <span class="hw-screen-title">Cocina · Pendientes</span>
+                <span class="hw-screen-live">● 3</span>
+              </div>
+              <div class="hw-screen-list">
+                <div class="hw-screen-line"></div>
+                <div class="hw-screen-line hw-screen-line--short"></div>
+                <div class="hw-screen-line"></div>
+              </div>
+            </div>
+            <div class="hw-screen-modular hw-screen-modular--2">
+              <div class="hw-screen-bar">
+                <span class="hw-screen-title">Bar · Listos</span>
+                <span class="hw-screen-live hw-screen-live--green">● 2</span>
+              </div>
+              <div class="hw-screen-list">
+                <div class="hw-screen-line hw-screen-line--short"></div>
+                <div class="hw-screen-line"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hardware-meta">
+          <span class="hardware-tag">Modular</span>
+          <h3 class="hardware-name">Pantallas Secundarias</h3>
+          <p class="hardware-desc">
+            Despliegues modulares para cocina, bar o caja. Sincronización en tiempo real con cada
+            pedido tomado en sala.
+          </p>
+        </div>
+      </li>
+
+      <!-- 3. Impresora Térmica -->
+      <li class="hardware-card reveal" style="transition-delay: 180ms">
+        <div class="hardware-photo hardware-photo--printer" aria-hidden="true">
+          <div class="hw-floor"></div>
+          <div class="hw-printer">
+            <div class="hw-printer-top">
+              <span class="hw-printer-led"></span>
+              <span class="hw-printer-led hw-printer-led--green"></span>
+            </div>
+            <div class="hw-printer-body">
+              <div class="hw-printer-slot"></div>
+              <div class="hw-printer-paper">
+                <div class="hw-paper-line"></div>
+                <div class="hw-paper-line"></div>
+                <div class="hw-paper-line hw-paper-line--bold"></div>
+                <div class="hw-paper-line"></div>
+                <div class="hw-paper-line hw-paper-line--dashed"></div>
+              </div>
+            </div>
+            <div class="hw-printer-feet">
+              <span class="hw-foot"></span>
+              <span class="hw-foot"></span>
+            </div>
+          </div>
+        </div>
+        <div class="hardware-meta">
+          <span class="hardware-tag">Impresión</span>
+          <h3 class="hardware-name">Impresoras Térmicas</h3>
+          <p class="hardware-desc">
+            Ticketeras de alta velocidad para comandas y facturas. Compatibles con formatos 58mm y
+            80mm, sin desconfiguración.
+          </p>
+        </div>
+      </li>
+
+      <!-- 4. Punto de Venta (POS) -->
+      <li class="hardware-card reveal" style="transition-delay: 270ms">
+        <div class="hardware-photo hardware-photo--pos" aria-hidden="true">
+          <div class="hw-floor"></div>
+          <div class="hw-pos">
+            <div class="hw-pos-monitor">
+              <div class="hw-pos-screen">
+                <div class="hw-pos-topbar">
+                  <span class="hw-pos-brand">Wira POS</span>
+                  <span class="hw-pos-status">● En línea</span>
+                </div>
+                <div class="hw-pos-grid">
+                  <div class="hw-pos-tile"></div>
+                  <div class="hw-pos-tile hw-pos-tile--accent"></div>
+                  <div class="hw-pos-tile"></div>
+                  <div class="hw-pos-tile hw-pos-tile--accent"></div>
+                  <div class="hw-pos-tile"></div>
+                  <div class="hw-pos-tile"></div>
+                </div>
+                <div class="hw-pos-total">
+                  <span>Total</span>
+                  <span class="hw-pos-amount">Bs 120.00</span>
+                </div>
+              </div>
+            </div>
+            <div class="hw-pos-stand"></div>
+            <div class="hw-pos-base"></div>
+            <div class="hw-pos-drawer">
+              <div class="hw-drawer-slot"></div>
+              <div class="hw-drawer-handle"></div>
+            </div>
+          </div>
+        </div>
+        <div class="hardware-meta">
+          <span class="hardware-tag">POS</span>
+          <h3 class="hardware-name">Punto de Venta</h3>
+          <p class="hardware-desc">
+            Estaciones completas con monitor, teclado y gaveta. Operación 100% offline y ventas en
+            tres clics.
+          </p>
+        </div>
+      </li>
+    </ul>
+
+    <p class="hardware-footnote reveal">
+      Todos los equipos se integran nativamente con el software Wira. Sin costos ocultos, sin
+      comisiones por transacción.
+    </p>
+  </div>
+</section>
+
+<style>
+  .wira-hardware {
+    padding: 96px 0;
+    background: var(--color-bg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hardware-header {
+    text-align: center;
+    margin: 0 auto 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    max-width: 680px;
+  }
+
+  .hardware-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  @media (min-width: 600px) {
+    .hardware-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hardware-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+  }
+
+  .hardware-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition:
+      transform 0.25s ease,
+      border-color 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+
+  .hardware-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 40px rgba(59, 125, 248, 0.18);
+  }
+
+  /* ── Área "fotográfica" del equipo ── */
+  .hardware-photo {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    background: linear-gradient(160deg, #1a2236 0%, #0f1629 100%);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hardware-photo::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+  }
+
+  .hw-floor {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30%;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.45) 100%);
+    pointer-events: none;
+  }
+
+  /* ── Meta / texto ── */
+  .hardware-meta {
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+  }
+
+  .hardware-tag {
+    display: inline-block;
+    width: fit-content;
+    padding: 3px 10px;
+    background: var(--color-primary-soft);
+    border: 1px solid rgba(59, 125, 248, 0.25);
+    border-radius: 999px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-accent-light);
+  }
+
+  .hardware-name {
+    margin: 0;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--color-text);
+    letter-spacing: -0.01em;
+  }
+
+  .hardware-desc {
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.55;
+    color: var(--color-text-muted);
+  }
+
+  .hardware-footnote {
+    margin: 40px 0 0;
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--color-text-subtle);
+  }
+
+  /* =====================================================
+     MOCKUP 1 — Kiosco de Autoservicio
+     ===================================================== */
+  .hw-kiosk {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .hw-kiosk-screen {
+    width: 110px;
+    height: 150px;
+    background: #0a0f1e;
+    border: 6px solid #2d3748;
+    border-radius: 12px;
+    box-shadow:
+      0 8px 20px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(255, 255, 255, 0.05);
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .hw-kiosk-topbar {
+    display: flex;
+    gap: 4px;
+    padding: 4px 6px;
+    background: #141d35;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .hw-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+  }
+
+  .hw-dot--red {
+    background: #ff5f57;
+  }
+  .hw-dot--yellow {
+    background: #febc2e;
+  }
+  .hw-dot--green {
+    background: #28c840;
+  }
+
+  .hw-kiosk-body {
+    flex: 1;
+    padding: 8px 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: var(--color-bg);
+  }
+
+  .hw-kiosk-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 6px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+  }
+
+  .hw-kiosk-row--accent {
+    border-color: var(--color-primary);
+    background: var(--color-primary-soft);
+  }
+
+  .hw-emoji {
+    font-size: 0.85rem;
+    line-height: 1;
+  }
+
+  .hw-kiosk-label {
+    flex: 1;
+    font-size: 0.55rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .hw-kiosk-price {
+    font-size: 0.55rem;
+    font-weight: 700;
+    color: var(--color-primary-hover);
+  }
+
+  .hw-kiosk-cta {
+    margin-top: auto;
+    padding: 5px;
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+    border-radius: 6px;
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .hw-kiosk-neck {
+    width: 14px;
+    height: 28px;
+    background: linear-gradient(90deg, #4a5568 0%, #2d3748 50%, #1a202c 100%);
+    margin-top: -4px;
+    z-index: 1;
+  }
+
+  .hw-kiosk-base {
+    width: 70px;
+    height: 8px;
+    background: linear-gradient(180deg, #2d3748 0%, #1a202c 100%);
+    border-radius: 4px 4px 0 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  }
+
+  /* =====================================================
+     MOCKUP 2 — Pantallas Modulares
+     ===================================================== */
+  .hw-screens-stack {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: 8px;
+    align-items: flex-end;
+    margin-bottom: 14px;
+  }
+
+  .hw-screen-modular {
+    width: 96px;
+    background: #0a0f1e;
+    border: 5px solid #2d3748;
+    border-radius: 8px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hw-screen-modular--2 {
+    height: 90px;
+  }
+
+  .hw-screen-modular--1 {
+    height: 120px;
+  }
+
+  .hw-screen-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 7px;
+    background: #141d35;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .hw-screen-title {
+    font-size: 0.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  .hw-screen-live {
+    font-size: 0.5rem;
+    font-weight: 700;
+    color: #f97316;
+  }
+
+  .hw-screen-live--green {
+    color: var(--color-accent-green);
+  }
+
+  .hw-screen-list {
+    padding: 7px 7px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: var(--color-bg);
+    flex: 1;
+  }
+
+  .hw-screen-line {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 2px;
+  }
+
+  .hw-screen-line--short {
+    width: 55%;
+    background: var(--color-primary);
+  }
+
+  /* =====================================================
+     MOCKUP 3 — Impresora Térmica
+     ===================================================== */
+  .hw-printer {
+    position: relative;
+    z-index: 2;
+    width: 130px;
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hw-printer-top {
+    width: 100%;
+    height: 14px;
+    background: linear-gradient(180deg, #3a4458 0%, #2d3748 100%);
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0 8px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  .hw-printer-led {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #f97316;
+    box-shadow: 0 0 4px rgba(249, 115, 22, 0.6);
+  }
+
+  .hw-printer-led--green {
+    background: var(--color-accent-green);
+    box-shadow: 0 0 4px rgba(74, 222, 128, 0.6);
+  }
+
+  .hw-printer-body {
+    width: 100%;
+    height: 64px;
+    background: linear-gradient(180deg, #2d3748 0%, #1a202c 100%);
+    border-radius: 0 0 6px 6px;
+    padding: 10px 8px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .hw-printer-slot {
+    width: 70%;
+    height: 6px;
+    background: #0a0f1e;
+    border-radius: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+  }
+
+  .hw-printer-paper {
+    width: 56%;
+    background: #f8fafc;
+    border-radius: 2px;
+    padding: 5px 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    animation: hw-paper-print 4s ease-in-out infinite;
+  }
+
+  .hw-paper-line {
+    height: 2px;
+    background: #94a3b8;
+    border-radius: 1px;
+  }
+
+  .hw-paper-line--bold {
+    background: #1e3a8a;
+    height: 3px;
+    width: 60%;
+  }
+
+  .hw-paper-line--dashed {
+    background: none;
+    border-top: 1px dashed #94a3b8;
+    height: 0;
+  }
+
+  .hw-printer-feet {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: -2px;
+  }
+
+  .hw-foot {
+    width: 10px;
+    height: 5px;
+    background: #1a202c;
+    border-radius: 0 0 3px 3px;
+  }
+
+  @keyframes hw-paper-print {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(2px);
+    }
+  }
+
+  /* =====================================================
+     MOCKUP 4 — Punto de Venta (POS)
+     ===================================================== */
+  .hw-pos {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+
+  .hw-pos-monitor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hw-pos-screen {
+    width: 120px;
+    height: 90px;
+    background: #0a0f1e;
+    border: 6px solid #2d3748;
+    border-radius: 8px;
+    box-shadow:
+      0 8px 20px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(255, 255, 255, 0.05);
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .hw-pos-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 6px;
+    background: #141d35;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .hw-pos-brand {
+    font-size: 0.55rem;
+    font-weight: 800;
+    font-style: italic;
+    color: var(--color-text);
+  }
+
+  .hw-pos-status {
+    font-size: 0.5rem;
+    font-weight: 600;
+    color: var(--color-accent-green);
+  }
+
+  .hw-pos-grid {
+    padding: 6px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    flex: 1;
+  }
+
+  .hw-pos-tile {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+  }
+
+  .hw-pos-tile--accent {
+    background: var(--color-primary-soft);
+    border-color: var(--color-primary);
+  }
+
+  .hw-pos-total {
+    padding: 5px 8px;
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.55rem;
+    color: var(--color-text-muted);
+  }
+
+  .hw-pos-amount {
+    font-weight: 800;
+    color: var(--color-text);
+  }
+
+  .hw-pos-stand {
+    width: 18px;
+    height: 18px;
+    background: linear-gradient(90deg, #4a5568, #2d3748);
+    clip-path: polygon(0 0, 100% 0, 70% 100%, 30% 100%);
+  }
+
+  .hw-pos-base {
+    width: 40px;
+    height: 5px;
+    background: #1a202c;
+    border-radius: 3px;
+    margin-top: -2px;
+  }
+
+  .hw-pos-drawer {
+    width: 56px;
+    height: 32px;
+    background: linear-gradient(180deg, #2d3748 0%, #1a202c 100%);
+    border-radius: 4px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.45);
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 0;
+  }
+
+  .hw-drawer-slot {
+    height: 6px;
+    background: #0a0f1e;
+    border-radius: 2px;
+  }
+
+  .hw-drawer-handle {
+    align-self: flex-end;
+    width: 14px;
+    height: 4px;
+    background: #4a5568;
+    border-radius: 2px;
+  }
+
+  /* ── Soporte de movimiento reducido ── */
+  @media (prefers-reduced-motion: reduce) {
+    .hw-printer-paper {
+      animation: none;
+    }
+  }
+</style>

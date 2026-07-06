@@ -1,0 +1,64 @@
+---
+// Catalog.astro — usa exclusivamente clases globales de global.css
+const features = [
+  {
+    emoji: '🖥️',
+    title: 'Punto de Venta y Kioskos',
+    desc: 'Ventas en 3 simples clics y sin complicaciones. Diseñado para trabajar sin retrasos por fallas de internet y sin lidiar con impresoras desconfiguradas.',
+  },
+  {
+    emoji: '🔄',
+    title: 'Apps Nativas y Operación Offline',
+    desc: 'A diferencia de otros sistemas que solo son páginas web, Wira ofrece aplicaciones nativas para Windows y Android que funcionan al 100% de forma local, incluso si te quedas sin conexión a internet.',
+  },
+  {
+    emoji: '📦',
+    title: 'Control de Inventario',
+    desc: 'Automatiza tu stock en segundos. Escanea artículos mediante lector de código de barras, controla niveles de stock en tiempo real y recibe alertas de reposición automáticas.',
+  },
+  {
+    emoji: '👥',
+    title: 'Control y Permisos de Personal',
+    desc: 'Monitorea qué cajero abrió la caja, quién registró gastos o a qué hora exacta se hicieron las anulaciones, controlando los permisos de tu personal en detalle.',
+  },
+  {
+    emoji: '📊',
+    title: 'Auditoría en tu Teléfono',
+    desc: 'No esperes hasta el cierre de caja para saber qué pasa en tu negocio. Monitorea en tiempo real ventas, anulaciones, reembolsos y gastos directo en tu celular.',
+  },
+  {
+    emoji: '☁️',
+    title: 'Sincronización en la Nube',
+    desc: 'Sincroniza tu menú y catálogo al instante: cambios automáticos en caja y otros dispositivos. Actualiza precios y crea artículos en segundos desde cualquier lugar.',
+  },
+];
+---
+
+<section class="wira-catalog" id="caracteristicas" aria-labelledby="catalog-title">
+  <div class="wira-container">
+    <div class="catalog-header reveal">
+      <span class="wira-section-badge">Características Principales</span>
+      <h2 id="catalog-title" class="wira-section-title">
+        El sistema que se adapta<br />al ritmo de tu negocio
+      </h2>
+      <p class="wira-section-sub">
+        Automatizar el inventario y las ventas de tu negocio nunca fue tan fácil. Con Wira vendes
+        más, cobras en segundos y tu negocio sigue funcionando incluso si te quedas sin internet.
+      </p>
+    </div>
+
+    <ul class="features-grid" role="list">
+      {
+        features.map((f, i) => (
+          <li class="feature-card reveal" style={`transition-delay: ${i * 90}ms`}>
+            <div class="feature-icon-wrap" aria-hidden="true">
+              {f.emoji}
+            </div>
+            <h3 class="feature-title">{f.title}</h3>
+            <p class="feature-desc">{f.desc}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

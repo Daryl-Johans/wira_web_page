@@ -1,0 +1,396 @@
+---
+// Hero.astro — usa exclusivamente clases globales de global.css
+---
+
+<section class="wira-hero" aria-label="Inicio">
+  <div class="wira-container hero-content-wrap">
+    <div class="hero-copy">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Sistema de gestión multirubro
+      </div>
+      <h1 class="hero-title">
+        El sistema para<br />
+        <span class="hero-rotator-wrapper">
+          <span class="hero-rotator-word active" data-rubro="restaurantes">restaurantes</span>
+          <span class="hero-rotator-word" data-rubro="hoteles">hoteles</span>
+          <span class="hero-rotator-word" data-rubro="billares">billares</span>
+          <span class="hero-rotator-word" data-rubro="ferreterias">ferreterías</span>
+        </span><br />
+        hecho a tu medida
+      </h1>
+      <p class="hero-sub">
+        Wira entiende tu operación de punta a punta: comandas, habitaciones, tiempos de juego,
+        inventario masivo y cobros — todo en tiempo real.
+      </p>
+
+      <!-- Selector interactivo de rubros -->
+      <div class="hero-tabs-selector" role="tablist" aria-label="Elegir rubro del sistema">
+        <button
+          class="hero-tab-btn active"
+          role="tab"
+          aria-selected="true"
+          data-rubro="restaurantes">🍽️ Restaurantes</button
+        >
+        <button class="hero-tab-btn" role="tab" aria-selected="false" data-rubro="hoteles"
+          >🏨 Hoteles</button
+        >
+        <button class="hero-tab-btn" role="tab" aria-selected="false" data-rubro="billares"
+          >🎱 Billares</button
+        >
+        <button class="hero-tab-btn" role="tab" aria-selected="false" data-rubro="ferreterias"
+          >⚙️ Ferreterías</button
+        >
+      </div>
+
+      <div class="hero-actions">
+        <a
+          class="hero-btn-primary"
+          href="https://wirasystems.web.app"
+          target="_blank"
+          rel="noopener noreferrer"
+          id="hero-cta-probar">Probar ahora</a
+        >
+        <a class="hero-btn-ghost" href="#planes" id="hero-cta-planes">Ver planes</a>
+      </div>
+    </div>
+
+    <div class="hero-stats reveal" role="list" aria-label="Estadísticas">
+      <div class="hero-stat" role="listitem">
+        <span class="hero-stat-num">Fácil</span>
+        <span class="hero-stat-label">Ventas en segundos</span>
+      </div>
+      <div class="hero-stat-divider" aria-hidden="true"></div>
+      <div class="hero-stat" role="listitem">
+        <span class="hero-stat-num" data-count="3">3</span>
+        <span class="hero-stat-label">Planes disponibles</span>
+      </div>
+      <div class="hero-stat-divider" aria-hidden="true"></div>
+      <div class="hero-stat" role="listitem">
+        <span class="hero-stat-num">Seguro</span>
+        <span class="hero-stat-label">Respaldo en la nube</span>
+      </div>
+      <div class="hero-stat-divider" aria-hidden="true"></div>
+      <div class="hero-stat" role="listitem">
+        <span class="hero-stat-num">Instalable</span>
+        <span class="hero-stat-label">En Windows y Android</span>
+      </div>
+    </div>
+
+    <!-- Mockup de la interfaz -->
+    <div class="hero-app" aria-hidden="true">
+      <div class="app-window">
+        <div class="app-titlebar">
+          <div class="app-dots">
+            <span class="app-dot app-dot-red"></span>
+            <span class="app-dot app-dot-yellow"></span>
+            <span class="app-dot app-dot-green"></span>
+          </div>
+          <span class="app-url" id="mockup-url">wira · Panel de Ventas (Gastronomía)</span>
+        </div>
+        <div class="app-body" id="mockup-body">
+          <div class="app-sidebar" id="mockup-sidebar">
+            <div class="sidebar-item">🏠 Inicio</div>
+            <div class="sidebar-item sidebar-item-active">🍽️ Mesas</div>
+            <div class="sidebar-item">📦 Inventario</div>
+            <div class="sidebar-item">📊 Reportes</div>
+          </div>
+          <div class="app-main">
+            <div class="app-tabs" id="mockup-tabs">
+              <span class="app-tab app-tab-active">Mesa 1</span>
+              <span class="app-tab">Mesa 2</span>
+              <span class="app-tab">Delivery</span>
+            </div>
+            <div class="app-orders">
+              <div id="mockup-orders-list">
+                <div class="order-row">
+                  <span class="order-badge badge-orange">En cocina</span>
+                  <span class="order-name">2× Pollo a la brasa</span>
+                  <span class="order-price">Bs 48</span>
+                </div>
+                <div class="order-row">
+                  <span class="order-badge badge-blue">Pendiente</span>
+                  <span class="order-name">1× Hamburguesa doble</span>
+                  <span class="order-price">Bs 24</span>
+                </div>
+                <div class="order-row order-row--live">
+                  <span class="order-badge badge-green">Listo</span>
+                  <span class="order-name">3× Gaseosa</span>
+                  <span class="order-price">Bs 15</span>
+                </div>
+              </div>
+              <div class="order-total-row">
+                <span>Total</span>
+                <span class="order-total-amount" id="mockup-total">Bs 87.00</span>
+              </div>
+              <button class="cobrar-btn" type="button">Cobrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  interface OrderItem {
+    badge: string;
+    badgeClass: string;
+    name: string;
+    price: string;
+    isLive?: boolean;
+  }
+
+  interface RubroInfo {
+    url: string;
+    sidebar: string[];
+    tabs: string[];
+    orders: OrderItem[];
+    total: string;
+  }
+
+  const rubroData: Record<string, RubroInfo> = {
+    restaurantes: {
+      url: 'wira · Panel de Ventas (Gastronomía)',
+      sidebar: ['🏠 Inicio', '🍽️ Mesas', '📦 Inventario', '📊 Reportes'],
+      tabs: ['Mesa 1', 'Mesa 2', 'Delivery'],
+      orders: [
+        {
+          badge: 'En cocina',
+          badgeClass: 'badge-orange',
+          name: '2× Pollo a la brasa',
+          price: 'Bs 48',
+        },
+        {
+          badge: 'Pendiente',
+          badgeClass: 'badge-blue',
+          name: '1× Hamburguesa doble',
+          price: 'Bs 24',
+        },
+        {
+          badge: 'Listo',
+          badgeClass: 'badge-green',
+          name: '3× Gaseosa',
+          price: 'Bs 15',
+          isLive: true,
+        },
+      ],
+      total: 'Bs 87.00',
+    },
+    hoteles: {
+      url: 'wira · Panel de Gestión (Hotelería)',
+      sidebar: ['🏠 Inicio', '🔑 Habitaciones', '📦 Inventario', '📊 Reportes'],
+      tabs: ['Hab. 104', 'Hab. 105', 'Reservas'],
+      orders: [
+        {
+          badge: 'Ocupado',
+          badgeClass: 'badge-orange',
+          name: '2× Noche Habitación Estándar',
+          price: 'Bs 350',
+        },
+        {
+          badge: 'Check-in',
+          badgeClass: 'badge-blue',
+          name: '1× Consumo Frigobar',
+          price: 'Bs 35',
+        },
+        {
+          badge: 'Confirmado',
+          badgeClass: 'badge-green',
+          name: '1× Desayuno Buffet Extra',
+          price: 'Bs 45',
+          isLive: true,
+        },
+      ],
+      total: 'Bs 430.00',
+    },
+    billares: {
+      url: 'wira · Control de Tiempos (Billares)',
+      sidebar: ['🏠 Inicio', '🎱 Mesas', '📦 Inventario', '📊 Reportes'],
+      tabs: ['Mesa 3', 'Mesa 4', 'Tarifas'],
+      orders: [
+        {
+          badge: 'En juego',
+          badgeClass: 'badge-orange',
+          name: 'Mesa 3 — Alquiler (2 horas)',
+          price: 'Bs 40',
+        },
+        {
+          badge: 'Pendiente',
+          badgeClass: 'badge-blue',
+          name: '3× Cerveza Paceña 620ml',
+          price: 'Bs 45',
+        },
+        {
+          badge: 'Terminado',
+          badgeClass: 'badge-green',
+          name: '1× Papas Fritas y Snacks',
+          price: 'Bs 20',
+          isLive: true,
+        },
+      ],
+      total: 'Bs 105.00',
+    },
+    ferreterias: {
+      url: 'wira · Punto de Venta (Retail/Ferreterías)',
+      sidebar: ['🏠 Inicio', '🛒 Ventas', '📦 Inventario', '📊 Reportes'],
+      tabs: ['Caja 1', 'Caja 2', 'Cotizaciones'],
+      orders: [
+        {
+          badge: 'Venta',
+          badgeClass: 'badge-orange',
+          name: '10× Pernos de anclaje 3/8',
+          price: 'Bs 15',
+        },
+        {
+          badge: 'Venta',
+          badgeClass: 'badge-blue',
+          name: '1× Taladro Percutor Dewalt',
+          price: 'Bs 680',
+        },
+        {
+          badge: 'Venta',
+          badgeClass: 'badge-green',
+          name: '2× Disco de corte 4.5"',
+          price: 'Bs 24',
+          isLive: true,
+        },
+      ],
+      total: 'Bs 719.00',
+    },
+  };
+
+  const keys = Object.keys(rubroData);
+  let currentIndex = 0;
+  let autoRotateInterval: number | undefined;
+
+  // Selectores DOM
+  const rotatorWords = document.querySelectorAll('.hero-rotator-word');
+  const tabBtns = document.querySelectorAll('.hero-tab-btn');
+  const mockupBody = document.getElementById('mockup-body');
+  const mockupUrl = document.getElementById('mockup-url');
+  const mockupSidebar = document.getElementById('mockup-sidebar');
+  const mockupTabs = document.getElementById('mockup-tabs');
+  const mockupOrdersList = document.getElementById('mockup-orders-list');
+  const mockupTotal = document.getElementById('mockup-total');
+
+  function updateActiveRubro(rubro: string, animate: boolean = true) {
+    // 1. Actualizar rotador de palabras
+    rotatorWords.forEach((word) => {
+      const el = word as HTMLElement;
+      const key = el.dataset.rubro;
+      if (key === rubro) {
+        el.classList.add('active');
+        el.classList.remove('exit');
+      } else if (el.classList.contains('active')) {
+        el.classList.remove('active');
+        el.classList.add('exit');
+      } else {
+        el.classList.remove('exit');
+      }
+    });
+
+    // 2. Actualizar botones del selector
+    tabBtns.forEach((btn) => {
+      const el = btn as HTMLButtonElement;
+      const isActive = el.dataset.rubro === rubro;
+      el.classList.toggle('active', isActive);
+      el.setAttribute('aria-selected', String(isActive));
+    });
+
+    // 3. Actualizar Mockup de forma animada
+    const data = rubroData[rubro];
+    if (data && mockupBody) {
+      if (animate) {
+        mockupBody.classList.add('is-updating');
+        setTimeout(() => {
+          applyMockupData(data);
+          mockupBody.classList.remove('is-updating');
+        }, 220);
+      } else {
+        applyMockupData(data);
+      }
+    }
+  }
+
+  function applyMockupData(data: RubroInfo) {
+    if (mockupUrl) mockupUrl.textContent = data.url;
+
+    // Sidebar
+    if (mockupSidebar) {
+      mockupSidebar.innerHTML = data.sidebar
+        .map(
+          (item, idx) => `
+          <div class="sidebar-item ${idx === 1 ? 'sidebar-item-active' : ''}">
+            ${item}
+          </div>
+        `
+        )
+        .join('');
+    }
+
+    // Tabs
+    if (mockupTabs) {
+      mockupTabs.innerHTML = data.tabs
+        .map(
+          (tab, idx) => `
+          <span class="app-tab ${idx === 0 ? 'app-tab-active' : ''}">
+            ${tab}
+          </span>
+        `
+        )
+        .join('');
+    }
+
+    // Orders List
+    if (mockupOrdersList) {
+      mockupOrdersList.innerHTML = data.orders
+        .map(
+          (order) => `
+          <div class="order-row ${order.isLive ? 'order-row--live' : ''}">
+            <span class="order-badge ${order.badgeClass}">${order.badge}</span>
+            <span class="order-name">${order.name}</span>
+            <span class="order-price">${order.price}</span>
+          </div>
+        `
+        )
+        .join('');
+    }
+
+    // Total
+    if (mockupTotal) {
+      mockupTotal.textContent = data.total;
+    }
+  }
+
+  function startAutoRotation() {
+    autoRotateInterval = window.setInterval(() => {
+      currentIndex = (currentIndex + 1) % keys.length;
+      const rubro = keys[currentIndex];
+      updateActiveRubro(rubro);
+    }, 4500);
+  }
+
+  function stopAutoRotation() {
+    if (autoRotateInterval) {
+      clearInterval(autoRotateInterval);
+      autoRotateInterval = undefined;
+    }
+  }
+
+  // Event Listeners
+  tabBtns.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      stopAutoRotation();
+      const el = e.currentTarget as HTMLButtonElement;
+      const rubro = el.dataset.rubro;
+      if (rubro) {
+        currentIndex = keys.indexOf(rubro);
+        updateActiveRubro(rubro);
+      }
+    });
+  });
+
+  // Inicializar
+  startAutoRotation();
+</script>
