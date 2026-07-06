@@ -44,5 +44,5 @@ verify_harness.ps1
 repl_loop.mjs
 
 # archivos temporales o páginas de prueba
-logo-wira-final.svg
+/logo-wira-final.svg
 src/pages/test-logos.astro
