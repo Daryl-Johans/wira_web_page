@@ -14,6 +14,8 @@
         <span class="hero-rotator-wrapper">
           <span class="hero-rotator-word active" data-rubro="restaurantes">restaurantes</span>
           <span class="hero-rotator-word" data-rubro="hoteles">hoteles</span>
+          <span class="hero-rotator-word" data-rubro="moteles">moteles</span>
+          <span class="hero-rotator-word" data-rubro="hostales">hostales</span>
           <span class="hero-rotator-word" data-rubro="billares">billares</span>
           <span class="hero-rotator-word" data-rubro="ferreterias">ferreterías</span>
         </span><br />
@@ -34,6 +36,12 @@
         >
         <button class="hero-tab-btn" role="tab" aria-selected="false" data-rubro="hoteles"
           >🏨 Hoteles</button
+        >
+        <button class="hero-tab-btn" role="tab" aria-selected="false" data-rubro="moteles"
+          >🛏️ Moteles</button
+        >
+        <button class="hero-tab-btn" role="tab" aria-selected="false" data-rubro="hostales"
+          >🏠 Hostales</button
         >
         <button class="hero-tab-btn" role="tab" aria-selected="false" data-rubro="billares"
           >🎱 Billares</button
@@ -203,6 +211,60 @@
         },
       ],
       total: 'Bs 430.00',
+    },
+    moteles: {
+      url: 'wira · Panel de Gestión (Hospedaje)',
+      sidebar: ['🏠 Inicio', '🔑 Habitaciones', '📦 Inventario', '📊 Reportes'],
+      tabs: ['Hab. 201', 'Hab. 202', 'Reservas'],
+      orders: [
+        {
+          badge: 'Ocupado',
+          badgeClass: 'badge-orange',
+          name: '2× Noche Habitación Suite',
+          price: 'Bs 280',
+        },
+        {
+          badge: 'Check-in',
+          badgeClass: 'badge-blue',
+          name: '1× Servicio a la habitación',
+          price: 'Bs 50',
+        },
+        {
+          badge: 'Confirmado',
+          badgeClass: 'badge-green',
+          name: '2× Bebidas Mini-bar',
+          price: 'Bs 40',
+          isLive: true,
+        },
+      ],
+      total: 'Bs 370.00',
+    },
+    hostales: {
+      url: 'wira · Panel de Gestión (Hospedaje)',
+      sidebar: ['🏠 Inicio', '🔑 Habitaciones', '📦 Inventario', '📊 Reportes'],
+      tabs: ['Hab. 101', 'Hab. 102', 'Reservas'],
+      orders: [
+        {
+          badge: 'Ocupado',
+          badgeClass: 'badge-orange',
+          name: '2× Noche Habitación Compartida',
+          price: 'Bs 120',
+        },
+        {
+          badge: 'Check-in',
+          badgeClass: 'badge-blue',
+          name: '1× Renta de casillero',
+          price: 'Bs 20',
+        },
+        {
+          badge: 'Confirmado',
+          badgeClass: 'badge-green',
+          name: '1× Desayuno Continental',
+          price: 'Bs 25',
+          isLive: true,
+        },
+      ],
+      total: 'Bs 165.00',
     },
     billares: {
       url: 'wira · Control de Tiempos (Billares)',

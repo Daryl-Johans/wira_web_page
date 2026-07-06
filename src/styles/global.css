@@ -310,7 +310,6 @@ video {
     color 0.15s ease,
     border-color 0.15s ease,
     transform 0.2s ease;
-  margin-left: auto;
 }
 .theme-toggle:hover {
   color: var(--color-text);
@@ -333,9 +332,10 @@ video {
 :root[data-theme='light'] .theme-toggle .moon-icon {
   display: block;
 }
-@media (min-width: 768px) {
+/* En móvil, agrupa el botón de tema junto al hamburguesa a la derecha */
+@media (max-width: 767px) {
   .theme-toggle {
-    margin-left: 0;
+    margin-right: -12px;
   }
 }
 .mobile-link {
