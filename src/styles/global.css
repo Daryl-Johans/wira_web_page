@@ -273,26 +273,30 @@ video {
   transform: translateY(-7px) rotate(-45deg);
 }
 .nav-mobile {
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 0fr;
   background: var(--color-bg-alt);
   border-top: 1px solid var(--color-border);
-  /* Animación de apertura/cierre */
-  display: flex;
   overflow: hidden;
-  max-height: 0;
   opacity: 0;
-  padding: 0;
   pointer-events: none;
   transition:
-    max-height 0.35s ease,
-    opacity 0.25s ease,
-    padding 0.35s ease;
+    grid-template-rows 0.35s ease,
+    opacity 0.25s ease;
+}
+.nav-mobile-inner {
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 .nav-mobile.is-open {
-  max-height: 420px;
+  grid-template-rows: 1fr;
   opacity: 1;
-  padding: 12px 0;
   pointer-events: auto;
+}
+.nav-mobile.is-open .nav-mobile-inner {
+  padding: 12px 0;
 }
 
 /* Selector de Tema Claro/Oscuro */
@@ -350,20 +354,49 @@ video {
     background 0.15s ease;
 }
 .mobile-link:hover {
-  color: var(--color-on-primary);
-  background: rgba(59, 125, 248, 0.1);
+  color: var(--color-text);
+  background: var(--color-primary-soft);
 }
 .mobile-cta {
   display: block;
   margin: 12px 24px 0;
   padding: 12px 24px;
-  background: var(--color-primary);
-  color: var(--color-on-primary);
+  background: var(--color-nav-cta-bg);
+  color: var(--color-nav-cta-text);
   border-radius: 10px;
   font-weight: 700;
   text-align: center;
   text-decoration: none;
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
 }
+.mobile-cta:hover {
+  opacity: 0.9;
+  color: var(--color-nav-cta-text);
+  transform: translateY(-1px);
+}
+
+/* Skip link — accesibilidad de teclado */
+.skip-link {
+  position: absolute;
+  top: -120px;
+  left: 16px;
+  z-index: 200;
+  padding: 12px 20px;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  border-radius: 10px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 12px;
+  color: var(--color-on-primary);
+}
+
 @media (min-width: 768px) {
   .nav-desktop {
     display: flex;

@@ -38,6 +38,8 @@ const {
     <!-- Fuerza que el navegador no use ningún SW previo (de Flutter) -->
     <meta http-equiv="Clear-Site-Data" content="cache, cookies, storage" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#0a0f1e" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -57,7 +59,8 @@ const {
     </script>
   </head>
   <body>
-    <header class="site-header" role="banner">
+    <a class="skip-link" href="#main-content">Saltar al contenido</a>
+    <header class="site-header">
       <div class="wira-container header-inner">
         <a class="brand" href="/" aria-label="Wira — Inicio">
           <img
@@ -79,9 +82,15 @@ const {
         </nav>
         <div class="header-ctas">
           <a href="#planes" class="nav-cta-ghost">Ver planes</a>
-          <a href="#contacto" class="nav-cta-primary" id="header-cta-probar">Probar ahora</a>
+          <a href="#contacto" class="nav-cta-primary" id="header-cta-probar">Probar gratis</a>
         </div>
-        <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema" type="button">
+        <button
+          id="theme-toggle"
+          class="theme-toggle"
+          aria-label="Activar tema claro"
+          aria-pressed="false"
+          type="button"
+        >
           <!-- Icono de Sol (visible en modo oscuro por defecto) -->
           <svg
             class="sun-icon"
@@ -130,14 +139,16 @@ const {
           <span class="bar"></span>
         </button>
       </div>
-      <nav class="nav-mobile" id="mobile-menu" aria-label="Menú móvil" aria-hidden="true">
-        <a href="#caracteristicas" class="mobile-link">Características</a>
-        <a href="#hardware" class="mobile-link">Hardware</a>
-        <a href="#planes" class="mobile-link">Planes</a>
-        <a href="#descarga" class="mobile-link">Descarga App</a>
-        <a href="#faq" class="mobile-link">FAQ</a>
-        <a href="#contacto" class="mobile-link">Contáctanos</a>
-        <a href="#contacto" class="mobile-cta" id="mobile-cta-probar">Probar ahora</a>
+      <nav class="nav-mobile" id="mobile-menu" aria-label="Menú móvil" aria-hidden="true" inert>
+        <div class="nav-mobile-inner">
+          <a href="#caracteristicas" class="mobile-link">Características</a>
+          <a href="#hardware" class="mobile-link">Hardware</a>
+          <a href="#planes" class="mobile-link">Planes</a>
+          <a href="#descarga" class="mobile-link">Descarga</a>
+          <a href="#faq" class="mobile-link">FAQ</a>
+          <a href="#contacto" class="mobile-link">Contáctanos</a>
+          <a href="#contacto" class="mobile-cta" id="mobile-cta-probar">Probar gratis</a>
+        </div>
       </nav>
     </header>
 
@@ -269,22 +280,60 @@ const {
     <script>
       const btn = document.getElementById('hamburger-btn') as HTMLButtonElement | null;
       const menu = document.getElementById('mobile-menu') as HTMLElement | null;
+      const closeMenu = (returnFocus = true) => {
+        if (!btn || !menu) return;
+        btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-label', 'Abrir menú');
+        btn.classList.remove('is-open');
+        menu.classList.remove('is-open');
+        menu.setAttribute('aria-hidden', 'true');
+        menu.setAttribute('inert', '');
+        if (returnFocus) btn.focus();
+      };
+      const openMenu = () => {
+        if (!btn || !menu) return;
+        btn.setAttribute('aria-expanded', 'true');
+        btn.setAttribute('aria-label', 'Cerrar menú');
+        btn.classList.add('is-open');
+        menu.classList.add('is-open');
+        menu.setAttribute('aria-hidden', 'false');
+        menu.removeAttribute('inert');
+        const first = menu.querySelector<HTMLAnchorElement>('a, button');
+        first?.focus();
+      };
       if (btn && menu) {
         btn.addEventListener('click', () => {
           const isOpen = btn.getAttribute('aria-expanded') === 'true';
-          const next = !isOpen;
-          btn.setAttribute('aria-expanded', String(next));
-          btn.classList.toggle('is-open', next);
-          menu.classList.toggle('is-open', next);
-          menu.setAttribute('aria-hidden', String(!next));
+          if (isOpen) closeMenu();
+          else openMenu();
         });
         menu.querySelectorAll('a').forEach((link) => {
-          link.addEventListener('click', () => {
-            menu.classList.remove('is-open');
-            menu.setAttribute('aria-hidden', 'true');
-            btn.setAttribute('aria-expanded', 'false');
-            btn.classList.remove('is-open');
-          });
+          link.addEventListener('click', () => closeMenu(false));
+        });
+        // Cierre con Escape + focus trap dentro del menú
+        menu.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') {
+            e.preventDefault();
+            closeMenu();
+            return;
+          }
+          if (e.key !== 'Tab') return;
+          const focusables = Array.from(menu.querySelectorAll<HTMLAnchorElement>('a, button'));
+          if (focusables.length === 0) return;
+          const first = focusables[0];
+          const last = focusables[focusables.length - 1];
+          if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        });
+        // Cierre automático al redimensionar a escritorio
+        const desktopMq = window.matchMedia('(min-width: 768px)');
+        desktopMq.addEventListener('change', (ev) => {
+          if (ev.matches && btn.getAttribute('aria-expanded') === 'true') closeMenu(false);
         });
       }
 
@@ -367,6 +416,16 @@ const {
 
       // Alternador de tema (Claro / Oscuro)
       const themeToggle = document.getElementById('theme-toggle') as HTMLButtonElement | null;
+      const syncThemeAria = () => {
+        if (!themeToggle) return;
+        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        themeToggle.setAttribute('aria-pressed', String(isLight));
+        themeToggle.setAttribute(
+          'aria-label',
+          isLight ? 'Activar tema oscuro' : 'Activar tema claro'
+        );
+      };
+      syncThemeAria();
       if (themeToggle) {
         themeToggle.addEventListener('click', () => {
           const isLight = document.documentElement.getAttribute('data-theme') === 'light';
@@ -377,6 +436,7 @@ const {
             document.documentElement.setAttribute('data-theme', 'light');
             localStorage.setItem('theme', 'light');
           }
+          syncThemeAria();
         });
       }
     </script>

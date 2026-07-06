@@ -70,8 +70,13 @@
             >Soporte por WhatsApp
           </li>
         </ul>
-        <a class="plan-cta plan-cta-blue" href="#contacto" id="cta-plan-basico"
-          >Elegir Plan Básico</a
+        <a
+          class="plan-cta plan-cta-blue"
+          href="https://wa.me/59178960077?text=Hola%2C%20quiero%20contratar%20el%20Plan%20B%C3%A1sico"
+          target="_blank"
+          rel="noopener noreferrer"
+          id="cta-plan-basico"
+          data-plan="Básico">Elegir Plan Básico</a
         >
       </div>
 
@@ -165,8 +170,13 @@
             >Soporte prioritario
           </li>
         </ul>
-        <a class="plan-cta plan-cta-orange" href="#contacto" id="cta-plan-estandar"
-          >Elegir Plan Estándar</a
+        <a
+          class="plan-cta plan-cta-orange"
+          href="https://wa.me/59178960077?text=Hola%2C%20quiero%20contratar%20el%20Plan%20Est%C3%A1ndar"
+          target="_blank"
+          rel="noopener noreferrer"
+          id="cta-plan-estandar"
+          data-plan="Estándar">Elegir Plan Estándar</a
         >
       </div>
 
@@ -263,8 +273,13 @@
             >Soporte prioritario
           </li>
         </ul>
-        <a class="plan-cta plan-cta-purple" href="#contacto" id="cta-plan-profesional"
-          >Elegir Plan Profesional</a
+        <a
+          class="plan-cta plan-cta-purple"
+          href="https://wa.me/59178960077?text=Hola%2C%20quiero%20contratar%20el%20Plan%20Profesional"
+          target="_blank"
+          rel="noopener noreferrer"
+          id="cta-plan-profesional"
+          data-plan="Profesional">Elegir Plan Profesional</a
         >
       </div>
     </div>
@@ -329,12 +344,36 @@
   const periods = document.querySelectorAll<HTMLElement>('.plan-period[data-monthly]');
   const equivEls = document.querySelectorAll<HTMLElement>('.plan-price-equiv');
   const badges = document.querySelectorAll<HTMLElement>('.plan-annual-badge');
+  const planCtas = document.querySelectorAll<HTMLAnchorElement>('.plan-cta[data-plan]');
 
   // Equivalentes mensuales reales (precio anual / 12)
   const monthlyEquiv = ['Bs 103,33', 'Bs 207,50', 'Bs 415,83'];
 
+  const WHATSAPP_NUMBER = '59178960077';
+
+  function buildWhatsAppHref(planName: string, price: string, period: string): string {
+    const message = `Hola, quiero contratar el Plan ${planName} (${price}${period}).`;
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  }
+
+  function updatePlanCtas(isAnnual: boolean) {
+    planCtas.forEach((cta) => {
+      const card = cta.closest('.plan-card');
+      if (!card) return;
+      const priceEl = card.querySelector<HTMLElement>('.plan-price');
+      if (!priceEl) return;
+      const planName = cta.dataset.plan ?? '';
+      const price = isAnnual ? (priceEl.dataset.annual ?? '') : (priceEl.dataset.monthly ?? '');
+      const period = isAnnual ? '/año' : '/mes';
+      cta.href = buildWhatsAppHref(planName, price, period);
+    });
+  }
+
   function switchPrices(mode: 'monthly' | 'annual') {
     const isAnnual = mode === 'annual';
+
+    // Actualizar enlaces de WhatsApp con el ciclo y precio correspondientes
+    updatePlanCtas(isAnnual);
 
     // Efecto de salida en precio y período
     prices.forEach((el) => el.classList.add('is-switching'));
@@ -370,6 +409,9 @@
     tabMensual?.setAttribute('aria-pressed', String(!isAnnual));
     tabAnual?.setAttribute('aria-pressed', String(isAnnual));
   }
+
+  // Inicializar enlaces de WhatsApp con el ciclo mensual por defecto
+  updatePlanCtas(false);
 
   tabMensual?.addEventListener('click', () => switchPrices('monthly'));
   tabAnual?.addEventListener('click', () => switchPrices('annual'));
